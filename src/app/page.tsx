@@ -272,7 +272,7 @@ const ImageBanner = () => {
 
 // --- Componente Principal da Aplicação ---
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   return (
     <div className={`min-h-screen font-sans flex flex-col transition-colors duration-300 ${isDarkMode ? 'bg-gradient-to-l from-gray-900 to-black/15-800 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
@@ -357,7 +357,7 @@ function App() {
         </Section>
         <Section className="text-center">
           <div className={`cursor-pointer p-6 rounded-xl max-w-2xl mx-auto shadow-lg flex flex-col sm:flex-row items-center justify-center gap-4 ${isDarkMode ? 'border-1 border-gray-700 shadow-2xs shadow-black/50 bg-gradient-to-r from-gray-900 to-black/15-800' : 'bg-blue-800 text-white'}`}>
-            <img className='w-30' src="/image/Guia Direito Do Cidadão.png" alt="QR CODE" />
+            <img className='w-30 rounded-2xl' src="/image/Guia Direito Do Cidadão.png" alt="QR CODE" />
             <p className="font-medium">
               Este material é <strong>100% digital</strong>, com foco em inovação e sustentabilidade. Compartilhe este guia para que mais pessoas tenham acesso aos seus direitos.
             </p>
