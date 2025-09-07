@@ -14,7 +14,7 @@ Bem-vindo ao repositório do **Guia de Direitos do Cidadão**, uma aplicação w
 ## 🖥️ Acesso ao Site
 Você pode acessar a versão ao vivo do projeto clicando no link abaixo:
 
-👉 [Guia de Direitos do Cidadão](https://guia-direitos-cidadao.vercel.app)
+👉 [Guia de Direitos do Cidadão](https://direito-cidadao.vercel.app)
 
 ---
 

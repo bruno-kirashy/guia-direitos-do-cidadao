@@ -1,4 +1,5 @@
 "use client"
+import { time } from 'console';
 import React, { useState, useEffect } from 'react';
 
 // --- Ícones SVG como Componentes ---
@@ -239,17 +240,27 @@ const ImageBanner = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [timerBanner,setTimerBanner] = useState<number>(0);
+  let timeEffect = 5000;
 
   useEffect(() => {
+    const intervalSec = setInterval(()=>{
+        
+            setTimerBanner(prevTimer => prevTimer + 0.5);
+        },timeEffect / 200)
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Muda a imagem a cada 5 segundos
+      setTimerBanner(0);
+    }, timeEffect); // Muda a imagem a cada 5 segundos
     
     return () => clearInterval(timer);
   }, [images.length]);
 
   return (
-    <div className="cursor-pointer relative w-full h-80 overflow-hidden rounded-xl shadow-lg mt-8 md:mt-16">
+    <div className="cursor-pointer relative w-full md:h-100 h-40 overflow-hidden rounded-xl shadow-lg mt-8 md:mt-16">
+      <div className="w-full h-1 bottom-0 left-0 bg-blue-400/30 absolute z-10 ">
+          <div style={{width:`${timerBanner}%`}} className={`h-1 top-0 left-0 bg-blue-400/80 absolute z-10 `}></div>
+      </div>
       {images.map((img, index) => (
         <img
           key={img}
@@ -291,7 +302,7 @@ function App() {
         
 
         <header className="text-center mb-12 md:mb-16 pt-12">
-          <h1 className={`text-4xl md:text-7xl font-extrabold mb-10 mt-[10px] md:mt-[-20px]  ${isDarkMode ? 'text-blue-300' : 'text-blue-900'}`}>
+          <h1 className={`text-4xl md:text-7xl font-extrabold mb-10 mt-[10px] md:mt-[-20px]  ${isDarkMode ? 'text-blue-400 text-shadow-lg text-shadow-black/50' : 'text-blue-900'}`}>
             Guia de Direitos do Cidadão
           </h1>
           <p className={`max-w-3xl mx-auto text-lg leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
