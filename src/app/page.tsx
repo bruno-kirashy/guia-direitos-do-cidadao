@@ -253,12 +253,12 @@ const ImageBanner = () => {
       setTimerBanner(0);
     }, timeEffect); // Muda a imagem a cada 5 segundos
     
-    return () => clearInterval(timer);
+    return () => {clearInterval(timer); clearInterval(intervalSec)};
   }, [images.length]);
 
   return (
-    <div className="cursor-pointer relative w-full md:h-100 h-40 overflow-hidden rounded-xl shadow-lg mt-8 md:mt-16">
-      <div className="w-full h-1 bottom-0 left-0 bg-blue-400/30 absolute z-10 ">
+    <div className="cursor-pointer relative w-full md:h-100 h-40 overflow-hidden rounded-xl shadow-lg mt-8 md:mt-16 ">
+      <div className="w-full h-1 bottom-0 left-0 bg-blue-400/30 absolute z-10 pointer-events-none">
           <div style={{width:`${timerBanner}%`}} className={`h-1 top-0 left-0 bg-blue-400/80 absolute z-10 `}></div>
       </div>
       {images.map((img, index) => (
@@ -266,13 +266,13 @@ const ImageBanner = () => {
           key={img}
           src={img}
           alt={`Banner ${index + 1}`}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-1000 ${
             index === currentImageIndex ? 'opacity-100' : 'opacity-0'
           }`}
         />
       ))}
-      <div className="absolute inset-0 bg-black/50 bg-opacity-30 flex items-center justify-center p-4">
-        <h2 className="text-white/95 text-3xl md:text-5xl font-extrabold text-center text-shadow-lg text-shadow-black/40">
+      <div className="absolute inset-0 bg-black/50 bg-opacity-30 flex items-center justify-center p-4 pointer-events-none">
+        <h2 className="text-white/95 text-3xl md:text-5xl font-extrabold text-center text-shadow-lg text-shadow-black/40 pointer-events-none">
           Conheça seus direitos!
         </h2>
       </div>
@@ -286,8 +286,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   return (
+    
     <div className={`min-h-screen font-sans flex flex-col transition-colors duration-300 ${isDarkMode ? 'bg-gradient-to-l from-gray-900 to-black/15-800 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
-      
       <main className="container mx-auto px-4 py-8 md:py-16 flex-grow relative">
       
         <button
