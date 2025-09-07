@@ -189,10 +189,10 @@ type LinkCardProps = {
 const RightCard = ({ icon, title, description, isDarkMode }: RightCardProps) => (
   <div className={`cursor-pointer p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-102 flex flex-col items-start gap-4 ${isDarkMode ? 'bg-gray-800 shadow-blue-900/20' : 'bg-white'}`}>
     <div className={`p-3 rounded-full ${isDarkMode ? 'bg-gray-700' : 'bg-blue-100'}`}>
-      {/* O ícone já tem a cor condicional via 'dark:' no SVG, o que é complexo de remover. 
-          Uma abordagem melhor seria passar a cor como prop para o ícone.
-          Por simplicidade, mantivemos a classe que afeta o SVG. */}
-      {React.cloneElement(icon as React.ReactElement, { className: `w-8 h-8 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} ` })}
+      {/* Aplique a cor e o tamanho no div pai do ícone */}
+      <div className={`w-8 h-8 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+        {icon}
+      </div>
     </div>
     <h3 className={`text-xl font-bold ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>{title}</h3>
     <p className={`leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{description}</p>
