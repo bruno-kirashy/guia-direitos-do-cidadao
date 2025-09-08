@@ -29,7 +29,7 @@ O principal objetivo é democratizar o acesso à justiça, oferecendo um recurso
 - Direitos Trabalhistas Básicos  
 - E muito mais!  
 
-O projeto foi desenvolvido pelo **Grupo Itinerário 6C da Faculdade Cruzeiro do Sul**.  
+O projeto foi desenvolvido por **Bruno Santos Silva**.  
 
 ---
 
